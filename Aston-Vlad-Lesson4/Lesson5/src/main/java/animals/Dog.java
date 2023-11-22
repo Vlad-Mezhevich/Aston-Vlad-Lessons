@@ -1,4 +1,4 @@
-import exception.InvalidValueException;
+package animals;
 
 public class Dog extends Animals {
 

@@ -1,4 +1,4 @@
-package exception;
+package animals.exception;
 
 public class InvalidValueException extends RuntimeException{
 

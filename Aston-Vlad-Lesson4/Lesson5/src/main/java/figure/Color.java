@@ -1,9 +1,11 @@
+package figure;
+
 public enum Color {
 
     Blue("Голубой"),
     Green("Зеленый"),
     Black("Черный"),
-    BlackWhite("Черно-белый"),
+    White("Белый"),
     Brown("Бурый");
 
     private String color;

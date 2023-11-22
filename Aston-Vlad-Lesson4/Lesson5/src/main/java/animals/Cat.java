@@ -1,11 +1,13 @@
-import exception.InvalidValueException;
+package animals;
 
 public class Cat extends Animals {
+
 
     private static int count;
 
     public Cat(String name, int age, Double weight, Color color, Double speedDistance, Double swimDistance, int appetite, boolean fullness) {
         super(name, age, weight, color, speedDistance, swimDistance, appetite, fullness);
+
         count++;
     }
 
@@ -25,14 +27,6 @@ public class Cat extends Animals {
         } else {
             System.out.println(getName() + " пробежал " + getSpeedDistance() +
                     "м., дистанцию необходимую проплыл " + runDistance + "м.");
-        }
-    }
-
-    @Override
-    protected void chechMaxSpeed(double speedDistance) {
-        if (speedDistance > 1000) {
-            throw new InvalidValueException("Перепроверьте максимальную дистанцию бега собаки " + getName() +
-                    ". Дистанция превышает на " + (1000 - speedDistance));
         }
     }
 

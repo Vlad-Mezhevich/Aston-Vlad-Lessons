@@ -1,4 +1,6 @@
-import exception.InvalidValueException;
+package animals;
+
+import animals.exception.InvalidValueException;
 
 public class Plate {
 

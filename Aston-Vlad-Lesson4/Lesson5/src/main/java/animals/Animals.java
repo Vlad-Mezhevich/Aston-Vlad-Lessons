@@ -1,4 +1,6 @@
-import exception.InvalidValueException;
+package animals;
+
+import animals.exception.InvalidValueException;
 
 public abstract class Animals {
 
@@ -14,18 +16,18 @@ public abstract class Animals {
 
     /**
      * Конструкторы
-     * public Animals - пустой конструктор(создается при компиляции),
+     * public animals.Animals - пустой конструктор(создается при компиляции),
      * но так как есть другие конструкторы, необходимо вручную создавать, если необходимо)
      */
-    public Animals(String name, Integer age, Double weight, Color color, Double speedDistance, Double swimDistance,int appetite,boolean fullness) {
+    public Animals(String name, Integer age, Double weight, Color color, Double speedDistance, Double swimDistance, int appetite, boolean fullness) {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.color = color;
-        this.speedDistance = speedDistance;
-        this.swimDistance = swimDistance;
-        this.appetite=appetite;
-        this.fullness=fullness;
+        chechMaxSpeed(speedDistance);
+        chechMaxSweem(swimDistance);
+        this.appetite = appetite;
+        this.fullness = fullness;
         count++;
     }
 
@@ -78,7 +80,7 @@ public abstract class Animals {
      * dontSwim() - метод не умение плавать
      * swim(double swimDistance) - метод проплыть дистанцию, дистанция задается вручную;
      * run(double runDistance) - метод пробежать дистанцию, дистанция задается вручную;
-     * toString() - вывод объекта класса Animals, можно переопределять в каждом наследуемом классе, соответсвенно
+     * toString() - вывод объекта класса animals.Animals, можно переопределять в каждом наследуемом классе, соответсвенно
      * вывод будет меняться.
      */
     public void dontSwim() {
@@ -118,11 +120,13 @@ public abstract class Animals {
      *                      не может быть больше 500 и меньше 5;
      */
     protected void chechMaxSpeed(double speedDistance) {
-        if (speedDistance > 500) {
+        if (speedDistance > 500.0) {
             throw new InvalidValueException("Перепроверьте максимальную дистанцию бега животного " + getName() +
-                    ". Дистанция превышает на " + (1000 - speedDistance));
-        } else if (speedDistance < 5) {
-            throw new InvalidValueException("Дистанцию бега не можеты быть меньше 5" + speedDistance);
+                    ". Дистанция превышает на " + (500 - speedDistance) * -1);
+        } else if (speedDistance < 5.0) {
+            throw new InvalidValueException("Дистанцию бега не может быть меньше 5. " + getClass() + " " + getName() + " дистанция бега " + speedDistance);
+        } else {
+            this.speedDistance = speedDistance;
         }
     }
 
@@ -133,9 +137,11 @@ public abstract class Animals {
     protected void chechMaxSweem(double swimDistance) {
         if (swimDistance > 100) {
             throw new InvalidValueException("Перепроверьте максимальную дистанцию плавания животного " + getName() +
-                    ". Дистанция превышает на " + (1000 - swimDistance));
+                    ". Дистанция превышает на " + (100 - swimDistance) * -1);
         } else if (swimDistance < 0) {
-            throw new InvalidValueException("Дистанцию бега не можеты быть меньше 0" + swimDistance);
+            throw new InvalidValueException("Дистанцию бега не можеты быть меньше 0 " + swimDistance);
+        } else {
+            this.swimDistance = swimDistance;
         }
     }
 
