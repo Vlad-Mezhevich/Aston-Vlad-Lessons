@@ -43,4 +43,8 @@ public class Cat extends Animals {
                 '}';
     }
 
+
+    public void swim(double swimDistance) {
+
+    }
 }

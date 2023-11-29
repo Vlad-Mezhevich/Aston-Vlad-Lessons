@@ -83,17 +83,8 @@ public abstract class Animals {
      * toString() - вывод объекта класса animals.Animals, можно переопределять в каждом наследуемом классе, соответсвенно
      * вывод будет меняться.
      */
-    public void dontSwim() {
-        System.out.println(getName() + " не умеет плавать");
-    }
 
-    public void swim(double swimDistance) {
-        if (getSwimDistance() <= swimDistance) {
-            System.out.println(getName() + " не проплыл " + swimDistance + "м., проплыл " + getSwimDistance() + "м.");
-        } else {
-            System.out.println(getName() + " проплыл");
-        }
-    }
+
 
     public void run(double runDistance) {
         if (getSpeedDistance() <= runDistance) {

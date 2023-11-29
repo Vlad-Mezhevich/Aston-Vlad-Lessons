@@ -1,6 +1,8 @@
 package animals;
 
-public class Dog extends Animals {
+import animals.interfaces.ISwimmingable;
+
+public class Dog extends Animals implements ISwimmingable {
 
     private static int count;
 
